@@ -17,15 +17,23 @@ public class AppArquivos {
 		long tamanho = 0;
 		File[] arquivosDoDiretório = diretório.listFiles();
 		for (File arquivo : arquivosDoDiretório) {
-			tamanho += arquivo.length();
+			if (arquivo.isDirectory()) {
+				tamanho += calcularTamanhoEmBytesDoDiretório(arquivo);
+			} else {
+				tamanho += arquivo.length();				
+			}
 		}		
 		return tamanho;
 	}
 
-	public static void listarArquivosDoDiretório(File diretório) {
+	public static void listarArquivosDoDiretório(File diretório) throws IOException {
 		File[] arquivosDoDiretório = diretório.listFiles();
 		for (File arquivo : arquivosDoDiretório) {
-			System.out.println(arquivo.getName() + " #tamanho=" + arquivo.length() + "bytes");
+			if (arquivo.isDirectory()) {
+				listarArquivosDoDiretório(arquivo);
+			} else {
+				System.out.println(arquivo.getCanonicalPath() + " #tamanho=" + arquivo.length() + "bytes");
+			}
 		}		
 	}
 
