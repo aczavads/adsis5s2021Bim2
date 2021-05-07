@@ -14,6 +14,14 @@ public class AppCópiaDeDiretórios {
 	}
 
 	private static void copiarDiretório(String origem, String destino) throws Exception {
+		File diretórioOrigem = new File(origem);
+		File[] arquivosOrigem = diretórioOrigem.listFiles();
+		for (File arquivo : arquivosOrigem) {
+			copiarArquivo(arquivo.getCanonicalPath(), destino + "/" + arquivo.getName());
+		}		
+	}
+	
+	private static void copiarArquivo(String origem, String destino) throws Exception {
 		File arquivoOrigem = new File(origem);
 		File arquivoDestino = new File(destino);
 		
