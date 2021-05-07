@@ -6,11 +6,11 @@ import java.io.IOException;
 public class AppArquivos {
 	
 	public static void main(String[] args) throws IOException {
-		File diretório = new File("/qualquer");
+		File diretório = new File("c:/qualquer");
 		
 		listarArquivosDoDiretório(diretório);
 		long tamanhoEmBytesDiretório = calcularTamanhoEmBytesDoDiretório(diretório);
-		System.out.println("Tamanho do diretório=" + tamanhoEmBytesDiretório);
+	    System.out.println("Tamanho do diretório = " + tamanhoEmBytesDiretório);
 	}
 	
 	private static long calcularTamanhoEmBytesDoDiretório(File diretório) {
@@ -32,7 +32,7 @@ public class AppArquivos {
 			if (arquivo.isDirectory()) {
 				listarArquivosDoDiretório(arquivo);
 			} else {
-				System.out.println(arquivo.getCanonicalPath() + " #tamanho=" + arquivo.length() + "bytes");
+				System.out.println(arquivo.getCanonicalPath() + " #tamanho = " + arquivo.length() + "bytes");
 			}
 		}		
 	}
