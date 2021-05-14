@@ -3,9 +3,6 @@ package adsis5s2021Bim2.aula20210512.serialização;
 import java.io.Serializable;
 
 public class Carro implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4136000513136319679L;
 	private String marca;
 	private String modelo;

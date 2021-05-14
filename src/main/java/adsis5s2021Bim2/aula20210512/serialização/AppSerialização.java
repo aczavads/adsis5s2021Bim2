@@ -13,7 +13,7 @@ public class AppSerialização {
 	
 	public static void main(String[] args) throws Exception {
 		
-		//gravarCarro();
+		gravarCarro();
 		Carro lido = lerCarro();
 		System.out.println(lido);
 		
