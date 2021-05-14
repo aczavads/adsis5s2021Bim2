@@ -18,7 +18,7 @@ public class AppMilSerializadosGzipados {
 		
 		for (int i = 0; i < 1000; i++) {
 			Raça r = i < 400 ? new Poodle() : new SemRaçaDefinida();
-			Cachorro c = new Cachorro("C�ozinho " + i, r);
+			Cachorro c = new Cachorro("Cãozinho " + i, r);
 			cachorrada.add(c);
 		}
 		
