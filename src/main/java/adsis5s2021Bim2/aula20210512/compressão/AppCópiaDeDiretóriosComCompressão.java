@@ -16,7 +16,7 @@ public class AppCópiaDeDiretóriosComCompressão {
 		String destino = "c:/qualquer-bkp";
 		copiarDiretório(origem, destino);
 		
-	}
+	} 
 
 	private static void copiarDiretório(String origem, String destino) throws Exception {
 		File diretórioOrigem = new File(origem);

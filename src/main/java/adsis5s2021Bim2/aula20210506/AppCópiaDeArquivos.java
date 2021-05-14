@@ -11,7 +11,7 @@ public class AppCópiaDeArquivos {
 		String destino = "c:/qualquer/primeiro.txt.bkp";
 		copiarArquivo(origem, destino);
 		
-	}
+	} 
 
 	private static void copiarArquivo(String origem, String destino) throws Exception {
 		File arquivoOrigem = new File(origem);

@@ -16,7 +16,7 @@ public class AppSerialização {
 		gravarCarro();
 		Carro lido = lerCarro();
 		System.out.println(lido);
-		
+		 
 	}
 
 	private static Carro lerCarro() throws Exception {

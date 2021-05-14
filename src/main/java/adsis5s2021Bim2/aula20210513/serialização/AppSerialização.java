@@ -12,5 +12,5 @@ public class AppSerialização {
 		ObjectOutputStream output = new ObjectOutputStream(System.out);
 		output.writeObject(fiel);
 	}
-
+ 
 }

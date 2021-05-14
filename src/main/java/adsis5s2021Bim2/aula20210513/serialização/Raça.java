@@ -6,3 +6,4 @@ public abstract class Raça implements Serializable{
 	private static final long serialVersionUID = 1370185020145397917L;
 
 }
+ 
