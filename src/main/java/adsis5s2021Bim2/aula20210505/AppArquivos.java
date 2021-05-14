@@ -6,19 +6,19 @@ import java.io.IOException;
 public class AppArquivos {
 	
 	public static void main(String[] args) throws IOException {
-		File diret髍io = new File("c:/qualquer");
+		File diret贸rio = new File("c:/qualquer");
 		
-		listarArquivosDoDiret髍io(diret髍io);
-		long tamanhoEmBytesDiret髍io = calcularTamanhoEmBytesDoDiret髍io(diret髍io);
-	    System.out.println("Tamanho do diret髍io = " + tamanhoEmBytesDiret髍io);
+		listarArquivosDodiret贸rio(diret贸rio);
+		long tamanhoEmBytesdiret贸rio = calcularTamanhoEmBytesDodiret贸rio(diret贸rio);
+	    System.out.println("Tamanho do diret贸rio = " + tamanhoEmBytesdiret贸rio);
 	}
 	
-	private static long calcularTamanhoEmBytesDoDiret髍io(File diret髍io) {
+	private static long calcularTamanhoEmBytesDodiret贸rio(File diret贸rio) {
 		long tamanho = 0;
-		File[] arquivosDoDiret髍io = diret髍io.listFiles();
-		for (File arquivo : arquivosDoDiret髍io) {
+		File[] arquivosDodiret贸rio = diret贸rio.listFiles();
+		for (File arquivo : arquivosDodiret贸rio) {
 			if (arquivo.isDirectory()) {
-				tamanho += calcularTamanhoEmBytesDoDiret髍io(arquivo);
+				tamanho += calcularTamanhoEmBytesDodiret贸rio(arquivo);
 			} else {
 				tamanho += arquivo.length();				
 			}
@@ -26,11 +26,10 @@ public class AppArquivos {
 		return tamanho;
 	}
 
-	public static void listarArquivosDoDiret髍io(File diret髍io) throws IOException {
-		File[] arquivosDoDiret髍io = diret髍io.listFiles();
-		for (File arquivo : arquivosDoDiret髍io) {
+	public static void listarArquivosDodiret贸rio(File diret贸rio) throws IOException {
+		File[] arquivosDodiret贸rio = diret贸rio.listFiles();
+		for (File arquivo : arquivosDodiret贸rio) {
 			if (arquivo.isDirectory()) {
-				listarArquivosDoDiret髍io(arquivo);
 			} else {
 				System.out.println(arquivo.getCanonicalPath() + " #tamanho = " + arquivo.length() + "bytes");
 			}

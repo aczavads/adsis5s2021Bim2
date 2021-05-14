@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class AppCópiaDeArquivos {
+public class AppCÃ³piaDeArquivos {
 	
 	public static void main(String[] args) throws Exception {
 		String origem = "c:/qualquer/primeiro.txt";

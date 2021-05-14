@@ -1,4 +1,4 @@
-package adsis5s2021Bim2.aula20210512.compress鉶;
+package adsis5s2021Bim2.aula20210512.compress茫o;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,18 +9,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 
-public class AppC髉iaDeDiret髍iosComCompress鉶 {
+public class AppC贸piaDeDiret贸riosComCompress茫o {
 	
 	public static void main(String[] args) throws Exception {
 		String origem = "c:/qualquer";
 		String destino = "c:/qualquer-bkp";
-		copiarDiret髍io(origem, destino);
+		copiarDiret贸rio(origem, destino);
 		
 	} 
 
-	private static void copiarDiret髍io(String origem, String destino) throws Exception {
-		File diret髍ioOrigem = new File(origem);
-		File[] arquivosOrigem = diret髍ioOrigem.listFiles();
+	private static void copiarDiret贸rio(String origem, String destino) throws Exception {
+		File diret贸rioOrigem = new File(origem);
+		File[] arquivosOrigem = diret贸rioOrigem.listFiles();
 		for (File arquivo : arquivosOrigem) {
 			copiarArquivo(arquivo.getCanonicalPath(), destino + "/" + arquivo.getName() + ".gz");
 		}		

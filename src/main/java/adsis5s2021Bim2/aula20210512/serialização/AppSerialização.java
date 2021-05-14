@@ -1,4 +1,4 @@
-package adsis5s2021Bim2.aula20210512.serialização;
+package adsis5s2021Bim2.aula20210512.serializaÃ§Ã£o;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,7 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
-public class AppSerialização {
+public class AppSerializaÃ§Ã£o {
 	
 	public static void main(String[] args) throws Exception {
 		

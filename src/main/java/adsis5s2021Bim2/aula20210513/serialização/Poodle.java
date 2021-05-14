@@ -1,6 +1,6 @@
-package adsis5s2021Bim2.aula20210513.serialização;
+package adsis5s2021Bim2.aula20210513.serializaÃ§Ã£o;
 
-public class Poodle extends Raça {
+public class Poodle extends RaÃ§a {
 	private static final long serialVersionUID = 3855364212272679385L;
 
 }

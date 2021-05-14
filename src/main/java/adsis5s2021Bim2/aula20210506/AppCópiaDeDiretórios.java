@@ -4,18 +4,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class AppC髉iaDeDiret髍ios {
+public class AppC贸piaDeDiret贸rios {
 	
 	public static void main(String[] args) throws Exception {
 		String origem = "c:/qualquer";
 		String destino = "c:/qualquer-bkp";
-		copiarDiret髍io(origem, destino);
+		copiarDiret贸rio(origem, destino);
 		
 	} 
 
-	private static void copiarDiret髍io(String origem, String destino) throws Exception {
-		File diret髍ioOrigem = new File(origem);
-		File[] arquivosOrigem = diret髍ioOrigem.listFiles();
+	private static void copiarDiret贸rio(String origem, String destino) throws Exception {
+		File diret贸rioOrigem = new File(origem);
+		File[] arquivosOrigem = diret贸rioOrigem.listFiles();
 		for (File arquivo : arquivosOrigem) {
 			copiarArquivo(arquivo.getCanonicalPath(), destino + "/" + arquivo.getName());
 		}		

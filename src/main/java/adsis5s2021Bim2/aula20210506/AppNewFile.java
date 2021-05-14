@@ -5,10 +5,10 @@ import java.io.File;
 public class AppNewFile {
 	
 	public static void main(String[] args) throws Exception  {
-		File novoDiret髍io = new File("c:/novoDiret髍io");
-		novoDiret髍io.mkdir();
+		File novoDiret贸rio = new File("c:/novoDiret贸rio");
+		novoDiret贸rio.mkdir();
 		
-		File novoArquivo = new File(novoDiret髍io.getCanonicalPath() + "/" + "novo.txt");
+		File novoArquivo = new File(novoDiret贸rio.getCanonicalPath() + "/" + "novo.txt");
 		novoArquivo.createNewFile();
 	}
 

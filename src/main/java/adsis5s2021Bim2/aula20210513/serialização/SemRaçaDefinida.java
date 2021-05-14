@@ -1,6 +1,6 @@
-package adsis5s2021Bim2.aula20210513.serialização;
+package adsis5s2021Bim2.aula20210513.serializaÃ§Ã£o;
 
-public class SemRaçaDefinida extends Raça {
+public class SemRaÃ§aDefinida extends RaÃ§a {
 	private static final long serialVersionUID = -5415494372433686357L;
 
 } 

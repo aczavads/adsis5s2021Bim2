@@ -1,4 +1,4 @@
-package adsis5s2021Bim2.aula20210513.serialização;
+package adsis5s2021Bim2.aula20210513.serializaÃ§Ã£o;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,8 +17,8 @@ public class AppMilSerializadosGzipados {
 		List<Cachorro> cachorrada = new ArrayList<Cachorro>();
 		
 		for (int i = 0; i < 1000; i++) {
-			Raça r = i < 400 ? new Poodle() : new SemRaçaDefinida();
-			Cachorro c = new Cachorro("Cãozinho " + i, r);
+			RaÃ§a r = i < 400 ? new Poodle() : new SemRaÃ§aDefinida();
+			Cachorro c = new Cachorro("Cï¿½ozinho " + i, r);
 			cachorrada.add(c);
 		}
 		
