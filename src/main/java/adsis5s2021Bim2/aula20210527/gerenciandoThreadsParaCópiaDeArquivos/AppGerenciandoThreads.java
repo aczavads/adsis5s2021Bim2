@@ -49,18 +49,27 @@ public class AppGerenciandoThreads extends JDialog {
 //								+ fieldDiretórioDeOrigem.getText() 
 //								+ " com " 
 //								+ fieldArquivosPorThread.getText() +
-//								" arquivos por thread.");
-				info.setText("Calculando aquivos a partir de " 
-						+ fieldDiretórioDeOrigem.getText() 
-						+ " com " 
-						+ fieldArquivosPorThread.getText() +
-						" arquivos por thread.");
-				
+//								" arquivos por thread.");				
 				for (ThreadProgressUI threadProgressUI : progressUIs) {
 					remove(threadProgressUI);
+					revalidate();
 				}
 				//seu código vem aqui! :D
-				int quantidadeCalculadaDeThreads = 3; //calcule aqui!
+				File dirOrigem = new File(fieldDiretórioDeOrigem.getText());
+				File[] arquivosDoDirOrigem = dirOrigem.listFiles();
+				int quantidadeArquivosDirOrigem = arquivosDoDirOrigem.length;
+				int quantidadeArquivosPorThread = Integer.parseInt(fieldArquivosPorThread.getText());
+				int quantidadeCalculadaDeThreads = quantidadeArquivosDirOrigem / quantidadeArquivosPorThread; //calcule aqui!
+				if (quantidadeArquivosDirOrigem % quantidadeArquivosPorThread > 0) {
+					quantidadeCalculadaDeThreads++;
+				}				
+				
+				info.setText("Serão necessárias " 
+						+ quantidadeCalculadaDeThreads + " threads, "
+						+ " copiando " + quantidadeArquivosPorThread + " arquivos "
+						+ " para copiar os " 
+						+ quantidadeArquivosDirOrigem + " arquivos."); 
+				
 				for (int i = 0; i < quantidadeCalculadaDeThreads; i++) {
 					File[] arquivosDaThread = new File[] {};
 					ThreadProgressUI progressUI = new ThreadProgressUI(
@@ -69,7 +78,7 @@ public class AppGerenciandoThreads extends JDialog {
 									fieldDiretórioDeOrigem.getText(), 
 									fieldDiretórioDeDestino.getText()));
 					progressUIs.add(progressUI);
-					add(progressUI);					
+					add(progressUI);										
 				}
 				revalidate();
 			}
