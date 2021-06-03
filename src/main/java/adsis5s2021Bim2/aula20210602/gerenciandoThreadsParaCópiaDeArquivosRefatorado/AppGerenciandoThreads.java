@@ -1,4 +1,4 @@
-package adsis5s2021Bim2.aula20210527.gerenciandoThreadsParaCópiaDeArquivos;
+package adsis5s2021Bim2.aula20210602.gerenciandoThreadsParaCópiaDeArquivosRefatorado;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -44,59 +44,61 @@ public class AppGerenciandoThreads extends JDialog {
 			@Override
 			public void focusLost(FocusEvent e) {
 				super.focusLost(e);
-//				JOptionPane.showMessageDialog(rootPane, 
-//								"Calculando aquivos a partir de " 
-//								+ fieldDiretórioDeOrigem.getText() 
-//								+ " com " 
-//								+ fieldArquivosPorThread.getText() +
-//								" arquivos por thread.");				
-				for (ThreadProgressUI threadProgressUI : progressUIs) {
-					remove(threadProgressUI);
-					revalidate();
-				}
-				//seu código vem aqui! :D
-				File dirOrigem = new File(fieldDiretórioDeOrigem.getText());
-				File[] arquivosDoDirOrigem = dirOrigem.listFiles();
-				int quantidadeArquivosDirOrigem = arquivosDoDirOrigem.length;
-				int quantidadeArquivosPorThread = Integer.parseInt(fieldArquivosPorThread.getText());
-				int quantidadeCalculadaDeThreads = quantidadeArquivosDirOrigem / quantidadeArquivosPorThread; //calcule aqui!
-				if (quantidadeArquivosDirOrigem % quantidadeArquivosPorThread > 0) {
-					quantidadeCalculadaDeThreads++;
-				}				
-				
-				info.setText("Serão necessárias " 
-						+ quantidadeCalculadaDeThreads + " threads, "
-						+ " copiando " + quantidadeArquivosPorThread + " arquivos "
-						+ " para copiar os " 
-						+ quantidadeArquivosDirOrigem + " arquivos."); 
-				
-				int índiceArquivosParaCopiar = 0;
-				for (int i = 0; i < quantidadeCalculadaDeThreads; i++) {
-					
-					List<File> arquivosDaThread = new ArrayList<>();
-					while (índiceArquivosParaCopiar < quantidadeArquivosDirOrigem) {
-						arquivosDaThread.add(arquivosDoDirOrigem[índiceArquivosParaCopiar]);
-						índiceArquivosParaCopiar++;
-						if (índiceArquivosParaCopiar % quantidadeArquivosPorThread == 0) {
-							break;
-						}
-					}
-					
-					ThreadProgressUI progressUI = new ThreadProgressUI(
-							new FileCopyThread(
-									arquivosDaThread, 
-									fieldDiretórioDeOrigem.getText(), 
-									fieldDiretórioDeDestino.getText()));
-					progressUIs.add(progressUI);
-					add(progressUI);										
-				}
-				revalidate();
+				clearThreadProgressUI();
+				addThreadProgressUI();
 			}
+
 		});
 		this.add(info);
 		this.add(new JSeparator());
 	}
 		
+	private void addThreadProgressUI() {
+		File dirOrigem = new File(fieldDiretórioDeOrigem.getText());
+		File[] arquivosDoDirOrigem = dirOrigem.listFiles();
+		int quantidadeArquivosDirOrigem = arquivosDoDirOrigem.length;
+		int quantidadeArquivosPorThread = Integer.parseInt(fieldArquivosPorThread.getText());
+		int quantidadeCalculadaDeThreads = quantidadeArquivosDirOrigem / quantidadeArquivosPorThread; //calcule aqui!
+		if (quantidadeArquivosDirOrigem % quantidadeArquivosPorThread > 0) {
+			quantidadeCalculadaDeThreads++;
+		}				
+		
+		info.setText("Serão necessárias " 
+				+ quantidadeCalculadaDeThreads + " threads, "
+				+ " copiando " + quantidadeArquivosPorThread + " arquivos "
+				+ " para copiar os " 
+				+ quantidadeArquivosDirOrigem + " arquivos."); 
+		
+		int índiceArquivosParaCopiar = 0;
+		for (int i = 0; i < quantidadeCalculadaDeThreads; i++) {
+			
+			List<File> arquivosDaThread = new ArrayList<>();
+			while (índiceArquivosParaCopiar < quantidadeArquivosDirOrigem) {
+				arquivosDaThread.add(arquivosDoDirOrigem[índiceArquivosParaCopiar]);
+				índiceArquivosParaCopiar++;
+				if (índiceArquivosParaCopiar % quantidadeArquivosPorThread == 0) {
+					break;
+				}
+			}
+			
+			ThreadProgressUI progressUI = new ThreadProgressUI(
+					new FileCopyThread(
+							arquivosDaThread, 
+							fieldDiretórioDeOrigem.getText(), 
+							fieldDiretórioDeDestino.getText()));
+			progressUIs.add(progressUI);
+			add(progressUI);										
+			revalidate();
+		}
+	}
+
+	private void clearThreadProgressUI() {
+		for (ThreadProgressUI threadProgressUI : progressUIs) {
+			remove(threadProgressUI);
+			revalidate();
+		}
+	}
+
 	
 	private class ThreadProgressUI extends JPanel {
 		private JProgressBar progressBar = new JProgressBar(0,100);

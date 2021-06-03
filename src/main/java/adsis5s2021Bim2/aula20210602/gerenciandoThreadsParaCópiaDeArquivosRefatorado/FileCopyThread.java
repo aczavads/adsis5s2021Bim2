@@ -1,4 +1,4 @@
-package adsis5s2021Bim2.aula20210527.gerenciandoThreadsParaCópiaDeArquivos;
+package adsis5s2021Bim2.aula20210602.gerenciandoThreadsParaCópiaDeArquivosRefatorado;
 
 import java.io.File;
 import java.io.FileOutputStream;
