@@ -22,7 +22,7 @@ public class AppServer {
 				Scanner inputFromClient = new Scanner(client.getInputStream());
 				
 				System.out.println("-----------------------------------");
-				while (inputFromClient.hasNextLine()) {
+				while (inputFromClient.hasNext()) {
 					System.out.println(inputFromClient.nextLine());
 				}
 				System.out.println("+++++++++++++++++++++++++++++++++++");
